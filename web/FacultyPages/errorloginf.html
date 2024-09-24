@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LoginError</title>
+  <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+  <style>
+      body{
+          background-color: #FFFFE0;
+      }
+  </style>
+  <script>
+    // Function to redirect after a specified number of seconds
+    function redirectTimer(seconds, url) {
+      var countdown = document.getElementById('countdown');
+      countdown.innerHTML = seconds;
+
+      if (seconds <= 0) {
+        window.location.href = url; // Redirect to the specified URL
+      } else {
+        setTimeout(function() {
+          redirectTimer(seconds - 1, url); // Recursively call the function with decreased seconds
+        }, 1000); // 1000 milliseconds = 1 second
+      }
+    }
+  </script>
+</head>
+<body onload="redirectTimer(5, 'flogin.jsp');">
+<center>
+  <h1 style="font-size: 65px;color:red">WRONG CREDENTIALS</h1>
+  <p style="font-size: 25px;"><b>Enter correct email/password</b></p>
+  <p style="font-size:35px;color:green;"><b>You will be redirected to login page in <span id="countdown"></span> seconds.</b></p>
+</center>
+</body>
+</html>
